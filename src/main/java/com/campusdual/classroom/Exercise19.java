@@ -39,33 +39,70 @@ public class Exercise19 {
 
     //TODO
     public static int[][] flatTridimensionalArray(int[][][] intArrayTri) {
-
+        int depth = intArrayTri.length;
+        int rows = intArrayTri[0].length;
+        int columns = intArrayTri[0][0].length;
+        int[][] result = new int[rows][columns];
+        for (int j = 0; j < rows; j++){
+            for (int k = 0; k < columns; k++) {
+                for (int i = 0; i < depth; i++){
+                    result[j][k] += intArrayTri[i][j][k];
+                }
+            }
+        }
+        return result;
     }
 
 
     // TODO
     public static String getBidimensionalString(int[][] intArrayBi) {
-
+        StringBuilder sb = new StringBuilder();
+        for (int[] row : intArrayBi) {
+            sb.append(getUnidimensionalString(row)).append("\n");
+        }
+        return sb.toString().trim();
     }
 
     // TODO
     public static String getUnidimensionalString(int[] uniArray) {
-
+        StringBuilder sb = new StringBuilder();
+        for (int num : uniArray) {
+            sb.append(num).append(" ");
+        }
+        return sb.toString().trim();
     }
 
     // TODO
     public static int[] createAndPopulateUnidimensionalArray(int columns) {
-
+        int[] array = new int[columns];
+        for (int i = 0; i < columns; i++){
+            array[i] = i + 1;
+        }
+        return array;
     }
 
     // TODO
     public static int[][] createAndPopulateBidimensionalArray(int rows, int columns) {
-
+        int[][] array = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++){
+                array[i][j] = (i * columns) + (j + 1);
+            }
+        }
+        return array;
     }
 
     // TODO
     public static int[][][] createAndPopulateTridimensionalArray(int depth, int rows, int columns) {
-
+        int[][][] array = new int[depth][rows][columns];
+        for (int i = 0; i < depth; i++) {
+            for (int j = 0; j < rows; j++) {
+                for (int k = 0; k < columns; k++) {
+                    array[i][j][k] = (i * rows * columns) + (j * columns) + (k+1);
+                }
+            }
+        }
+        return array;
     }
 
     public static void main(String[] args) {
